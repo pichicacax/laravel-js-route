@@ -1,0 +1,7 @@
+{
+    "name": "pichicacax/laravel-js-route",
+    "description": "Convert all your routes and enable named route usage in Javascript",
+    "require": {
+        "php": "^7.2"
+    }
+}
