@@ -3,6 +3,7 @@
     "description": "Convert all your routes and enable named route usage in Javascript",
     "type": "library",
     "license" : "MIT",
+    "version": "v0.1-alpha",
     "require": {
         "php": "^7.2"
     },
