@@ -37,7 +37,6 @@ class Command extends BaseCommand
      * Execute the console command.
      *
      * @return mixed
-     * @author My Oliveros <moliveros@i4asiacorp.com>
      */
     public function handle(JsRouteGenerator $generator)
     {

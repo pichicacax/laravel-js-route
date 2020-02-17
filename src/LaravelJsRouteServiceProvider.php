@@ -28,7 +28,6 @@ class LaravelJSRouteServiceProvider extends ServiceProvider
      * Register the service provider.
      *
      * @return void
-     * @author My Oliveros <moliveros@i4asiacorp.com>
      */
     public function register()
     {
@@ -43,7 +42,6 @@ class LaravelJSRouteServiceProvider extends ServiceProvider
      * Get the services provided by the provider.
      *
      * @return array
-     * @author My Oliveros <moliveros@i4asiacorp.com>
      */
     public function provides()
     {

@@ -19,7 +19,6 @@ class Generator
      * 
      * @param  string $target 
      * @return boolean         
-     * @author My Oliveros <moliveros@i4asiacorp.com>
      */
     public function run($target)
     {
