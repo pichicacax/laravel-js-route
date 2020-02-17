@@ -18,9 +18,10 @@ class Generator
      * Create JS file for routes json and helper
      * 
      * @param  string $target 
+     * @param  boolean $jsonOnly
      * @return boolean         
      */
-    public function run($target)
+    public function run(string $target, bool $jsonOnly = false)
     {
         $routes = [];
 
@@ -28,8 +29,14 @@ class Generator
             $routes[$route->getName()] = $route->uri();
         }
 
+        $json = json_encode($routes, JSON_PRETTY_PRINT);
+
+        if ($jsonOnly) {
+            return $this->file->put($target, $json);
+        }
+
         $template = $this->file->get(__DIR__ . '/routes.js');
-        $template = str_replace('\'{ routes }\'', json_encode($routes, JSON_PRETTY_PRINT), $template);
+        $template = str_replace('\'{ routes }\'', $json, $template);
 
         return $this->file->put($target, $template);
     }        

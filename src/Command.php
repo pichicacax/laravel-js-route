@@ -5,6 +5,8 @@ namespace Pichicacax\LaravelJsRoute;
 use Illuminate\Console\Command as BaseCommand;
 use Pichicacax\LaravelJsRoute\Generator as JsRouteGenerator;
 
+use Illuminate\Support\Str;
+
 class Command extends BaseCommand
 {
     /**
@@ -12,7 +14,7 @@ class Command extends BaseCommand
      *
      * @var string
      */
-    protected $signature = 'route:js {target?}';
+    protected $signature = 'route:js {target?} {--j|json : Get the routes as a JSON file}';
 
     /**
      * The console command description.
@@ -46,7 +48,13 @@ class Command extends BaseCommand
             $target = 'resources/assets/js/routes.js';
         }
 
-        if ($generator->run($target)) {
+        $jsonOnly = $this->option('json');
+
+        if ($jsonOnly) {
+            $target = Str::replaceLast('.js', '.json', $target);
+        }
+
+        if ($generator->run($target, $jsonOnly)) {
             return $this->info("Created: {$target}");
         }
 
